@@ -2609,6 +2609,8 @@ input, select, textarea {
 				width: 100%;
 				border-radius: 4px;
 				overflow: hidden;
+				opacity: 1;
+				border: 4px solid #999999;
 			}
 
 				.tiles article > .image img {
@@ -2647,10 +2649,6 @@ input, select, textarea {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					/*background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");*/
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: 100% 100%;
 					opacity: 0.25;
 					z-index: 2;
 				}
@@ -2684,10 +2682,11 @@ input, select, textarea {
 				padding: 1em;
 				border-radius: 4px;
 				border-bottom: 0;
-				color: #eeeeee;
+				color: #999999;
 				text-align: center;
 				text-decoration: none;
 				z-index: 3;
+				opacity: 0;
 			}
 
 				.tiles article > a > :last-child {
@@ -2695,11 +2694,14 @@ input, select, textarea {
 				}
 
 				.tiles article > a:hover {
-					color: #999999 !important;
+					color: #eeeeee !important;
+					opacity: 1;
 				}
 
 				.tiles article > a h2 {
 					margin: 0;
+					text-transform: none;
+					text-align: center;
 				}
 
 				.tiles article > a .content {
@@ -2710,7 +2712,7 @@ input, select, textarea {
 					width: 100%;
 					max-height: 0;
 					line-height: 1.5;
-					margin-top: 0.35em;
+					margin-top: 1.35em;
 					opacity: 0;
 				}
 
@@ -2718,44 +2720,21 @@ input, select, textarea {
 						margin-bottom: 0;
 					}
 
-			.tiles article.style1 > .image:before {
-				background-color: #f2849e;
-			}
-
-			.tiles article.style2 > .image:before {
-				background-color: #7ecaf6;
-			}
-
-			.tiles article.style3 > .image:before {
-				background-color: #7bd0c1;
-			}
-
-			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
-			}
-
-			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
-			}
-
-			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
-			}
-
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
 				-webkit-transform: scale(1.1);
 				-ms-transform: scale(1.1);
 				transform: scale(1.1);
+				opacity: 0.25;
 			}
 
 				body:not(.is-touch) .tiles article:hover > .image:before {
-					background-color: #333333;
-					opacity: 0.35;
+					background-color: #232323;
+					opacity: 0.1;
 				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
-					opacity: 0;
+					opacity: 0.1;
 				}
 
 			body:not(.is-touch) .tiles article:hover .content {
