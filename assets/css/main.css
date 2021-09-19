@@ -2682,7 +2682,7 @@ input, select, textarea {
 				padding: 1em;
 				border-radius: 4px;
 				border-bottom: 0;
-				color: #999999;
+				color: #eeeeee;
 				text-align: center;
 				text-decoration: none;
 				z-index: 3;
@@ -2701,7 +2701,12 @@ input, select, textarea {
 				.tiles article > a h2 {
 					margin: 0;
 					text-transform: none;
-					text-align: center;
+					background-color: rgba(23, 23, 23, 0.9);
+					letter-spacing: normal;
+				}
+
+				.tiles article > a .content > br {
+					line-height: 1000%;
 				}
 
 				.tiles article > a .content {
@@ -2719,6 +2724,13 @@ input, select, textarea {
 					.tiles article > a .content > :last-child {
 						margin-bottom: 0;
 					}
+
+			body:not(.is-touch) .tiles article:hover > a h2 {
+				margin: 0;
+				background-color: rgba(0, 0, 0, 0);
+				text-shadow: none;
+				border-bottom: 1px solid #eeeeee;
+			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
@@ -2740,6 +2752,7 @@ input, select, textarea {
 			body:not(.is-touch) .tiles article:hover .content {
 				max-height: 15em;
 				opacity: 1;
+				text-shadow: none;
 			}
 
 		* + .tiles {
