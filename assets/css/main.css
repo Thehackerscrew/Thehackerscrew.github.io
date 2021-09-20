@@ -2701,7 +2701,7 @@ input, select, textarea {
 				.tiles article > a h2 {
 					margin: 0;
 					text-transform: none;
-					background-color: rgba(23, 23, 23, 0.9);
+					/*background-color: rgba(23, 23, 23, 0.9);*/
 					letter-spacing: normal;
 				}
 
@@ -2727,8 +2727,8 @@ input, select, textarea {
 
 			body:not(.is-touch) .tiles article:hover > a h2 {
 				margin: 0;
-				background-color: rgba(0, 0, 0, 0);
-				text-shadow: none;
+				/*background-color: rgba(0, 0, 0, 0);*/
+				/*text-shadow: none;*/
 				border-bottom: 1px solid #eeeeee;
 			}
 
