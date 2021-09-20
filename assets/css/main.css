@@ -2772,10 +2772,13 @@ input, select, textarea {
 			opacity: 1;
 		}
 
-		body.is-touch .tiles article:hover article:focus article:active > .image:before {
-			background-color: #232323;
-			opacity: 0.1;
-		}
+		body.is-touch .tiles article:hover article:focus article:active > .image {
+				-moz-transform: scale(1.1);
+				-webkit-transform: scale(1.1);
+				-ms-transform: scale(1.1);
+				transform: scale(1.1);
+				opacity: 0.25;
+			}
 
 		@media screen and (max-width: 1280px) {
 
