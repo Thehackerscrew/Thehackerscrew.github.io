@@ -2740,7 +2740,7 @@ input, select, textarea {
 				opacity: 0.25;
 			}
 
-				body:not(.is-touch) .tiles article:hover article:focus article:active > .image:before {
+				body:not(.is-touch) .tiles article:hover > .image:before {
 					background-color: #232323;
 					opacity: 0.1;
 				}
@@ -2770,6 +2770,11 @@ input, select, textarea {
 		body.is-touch .tiles article .content {
 			max-height: 15em;
 			opacity: 1;
+		}
+
+		body.is-touch .tiles article:hover article:focus article:active > .image:before {
+			background-color: #232323;
+			opacity: 0.1;
 		}
 
 		@media screen and (max-width: 1280px) {
