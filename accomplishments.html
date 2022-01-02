@@ -80,13 +80,13 @@
 							<!-- Table -->
 								<section>
 									<div class="table-wrapper">
-										<table>
+										<table id="ctfs">
 											<thead>
 												<tr>
 													<th></th>
-													<th style="text-align:left;">Place</th>
-													<th>Event</th>
-													<th>Rating Points</th>
+													<th style="text-align:left;" onclick="sortAccomplishments(1)" id="pl">Place</th>
+													<th onclick="sortAccomplishments(2)" id="ev">Event</th>
+													<th onclick="sortAccomplishments(3)" id="rp">Rating Points</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -271,6 +271,97 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+			var originaltable = document.getElementById("ctfs").innerHTML;
+			var state = 0;
+			let hdrs = ["","Place","Event","Rating Points"];
+
+			function sortAccomplishments(n) {
+				var hdr, table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("ctfs");
+
+				if (n == 1) {
+					hdr = document.getElementById("pl");
+				} else if (n == 2) {
+					hdr = document.getElementById("ev");
+				} else if (n == 3) {
+					hdr = document.getElementById("rp");
+				}
+
+				if (state == 2 && n == 1) {
+					table.innerHTML = originaltable;
+					state = 0;
+					hdr.innerHTML = hdrs[n];
+					return;
+				}
+				if (state == 4 && n == 2) {
+					table.innerHTML = originaltable;
+					state = 0;
+					hdr.innerHTML = hdrs[n];
+					return;
+				}
+				if (state == 6 && n == 3) {
+					table.innerHTML = originaltable;
+					state = 0;
+					hdr.innerHTML = hdrs[n];
+					return;
+				}
+				switching = true;
+				dir = "a";
+				while (switching) {
+					switching = false;
+					rows = table.rows;
+					for (i = 1; i < (rows.length-1); i++) {
+						shouldSwitch = false;
+						x = rows[i].getElementsByTagName("td")[n];
+						y = rows[i+1].getElementsByTagName("td")[n];
+						if (n == 2) {
+							if (dir == "a") {
+								if ($(x).text().toLowerCase() > $(y).text().toLowerCase()) {
+									shouldSwitch = true;
+									break;
+								}
+							} else if (dir == "d") {
+								if ($(x).text().toLowerCase() < $(y).text().toLowerCase()) {
+									shouldSwitch = true;
+									break;
+								}
+							}
+						} else {
+							if (dir == "a") {
+								if (Number(x.innerHTML) > Number(y.innerHTML)) {
+									shouldSwitch = true;
+									break;
+								}
+							} else if (dir == "d") {
+								if (Number(x.innerHTML) < Number(y.innerHTML)) {
+									shouldSwitch = true;
+									break;
+								}
+							}
+						}
+					}
+					if (shouldSwitch) {
+						rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+						switching = true;
+						switchcount++;
+					} else {
+						if (switchcount == 0 && dir == "a") {
+							dir = "d";
+							switching = true;
+						}
+					}
+				}
+				if (dir == "d") {
+					state = 2*n;
+					hdr.innerHTML = hdrs[n]+"&emsp;&#8595;";
+				} else {
+					state = 2*n-1;
+					hdr.innerHTML = hdrs[n]+"&emsp;&#8593;";
+				}
+			}
+			</script>
 
 	</body>
 </html>
