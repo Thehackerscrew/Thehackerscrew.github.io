@@ -2725,14 +2725,14 @@ input, select, textarea {
 						margin-bottom: 0;
 					}
 
-			body:not(.is-touch) .tiles article:hover > a h2 {
+			.tiles article:hover > a h2 {
 				margin: 0;
 				/*background-color: rgba(0, 0, 0, 0);*/
 				/*text-shadow: none;*/
 				border-bottom: 1px solid #eeeeee;
 			}
 
-			body:not(.is-touch) .tiles article:hover > .image {
+			.tiles article:hover > .image {
 				-moz-transform: scale(1.1);
 				-webkit-transform: scale(1.1);
 				-ms-transform: scale(1.1);
@@ -2740,16 +2740,46 @@ input, select, textarea {
 				opacity: 0.25;
 			}
 
-				body:not(.is-touch) .tiles article:hover > .image:before {
+				.tiles article:hover > .image:before {
 					background-color: #232323;
 					opacity: 0.1;
 				}
 
-				body:not(.is-touch) .tiles article:hover > .image:after {
+				.tiles article:hover > .image:after {
 					opacity: 0.1;
 				}
 
-			body:not(.is-touch) .tiles article:hover .content {
+			.tiles article:hover .content {
+				max-height: 15em;
+				opacity: 1;
+				text-shadow: none;
+			}
+
+			.tiles article:active > a h2 {
+				margin: 0;
+				/*background-color: rgba(0, 0, 0, 0);*/
+				/*text-shadow: none;*/
+				border-bottom: 1px solid #eeeeee;
+			}
+
+			.tiles article:active > .image {
+				-moz-transform: scale(1.1);
+				-webkit-transform: scale(1.1);
+				-ms-transform: scale(1.1);
+				transform: scale(1.1);
+				opacity: 0.25;
+			}
+
+				.tiles article:active > .image:before {
+					background-color: #232323;
+					opacity: 0.1;
+				}
+
+				.tiles article:active > .image:after {
+					opacity: 0.1;
+				}
+
+			.tiles article:active .content {
 				max-height: 15em;
 				opacity: 1;
 				text-shadow: none;
