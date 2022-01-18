@@ -2720,19 +2720,19 @@ input, select, textarea {
 						margin-bottom: 0;
 					}
 
-				.tiles article > a:hover {
+				.tiles article a:hover {
 					color: #eeeeee !important;
 					opacity: 1;
 				}
 
-				.tiles article:hover > a h2 {
+				.tiles article:hover a h2 {
 					margin: 0;
 					/*background-color: rgba(0, 0, 0, 0);*/
 					/*text-shadow: none;*/
 					border-bottom: 1px solid #eeeeee;
 				}
 
-				.tiles article:hover > .image {
+				.tiles article:hover .image {
 					-moz-transform: scale(1.1);
 					-webkit-transform: scale(1.1);
 					-ms-transform: scale(1.1);
@@ -2740,12 +2740,12 @@ input, select, textarea {
 					opacity: 0.25;
 				}
 
-					.tiles article:hover > .image:before {
+					.tiles article:hover .image:before {
 						background-color: #232323;
 						opacity: 0.1;
 					}
 
-					.tiles article:hover > .image:after {
+					.tiles article:hover .image:after {
 						opacity: 0.1;
 					}
 
