@@ -14,12 +14,12 @@
 		<title>TheHackersCrew Accomplishments Page</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="TheHackersCrew is an international CTF team formed in 2020. The team consists of players from around the globe, featuring high school students, college students, and professionals.">
+		<meta name="description" content="TheHackersCrew is one of the best CTF teams in the world with members from all around the globe.">
         <meta name="author" content="TheHackersCrew">
         <meta name="keywords" content="thehackerscrew, cybersecurity, CTF">
         <meta property="og:title" content="TheHackersCrew Accomplishments Page"/>
-        <meta property="og:description" content="TheHackersCrew is an international CTF team formed in 2020. The team consists of players from around the globe, featuring high school students, college students, and professionals."/>
-        <meta property="og:image" content="https://www.thehackerscrew.info/images/logo.jpeg"/>
+        <meta property="og:description" content="TheHackersCrew is one of the best CTF teams in the world with members from all around the globe."/>
+        <meta property="og:image" content="https://www.thehackerscrew.info/images/logo.png"/>
         <meta property="og:url" content="https://www.thehackerscrew.info/"/>
         <meta property="og:site_name" content="TheHackersCrew"/>
         <meta property="og:type" content="website"/>
@@ -27,12 +27,38 @@
         <meta property="twitter:site" content="@thehackerscrew1">
         <meta property="twitter:creator" content="@thehackerscrew1">
         <meta property="twitter:title" content="TheHackersCrew Accomplishments Page">
-        <meta property="twitter:description" content="TheHackersCrew is an international CTF team formed in 2020. The team consists of players from around the globe, featuring high school students, college students, and professionals.">
-        <meta property="twitter:image" content="https://www.thehackerscrew.info/images/logo.jpeg">
+        <meta property="twitter:description" content="TheHackersCrew is one of the best CTF teams in the world with members from all around the globe.">
+        <meta property="twitter:image" content="https://www.thehackerscrew.info/images/logo.png">
         <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="icon" type="image/x-icon" href="images/logo.jpeg" />
+		<link rel="icon" type="image/x-icon" href="images/logo.png" />
+		<style>
+			.c { color: #d6af36; }
+			.g { color: #d6af36; }
+			.s { color: #d7d7d7; }
+			.b { color: #824a02; }
+
+			#medals th {
+				padding-top: 1em;
+				border-top: 1px solid #eeee;
+				border-left: 1px solid #eeee;
+				border-right: 1px solid #eeee;
+			}
+			#medals td {
+				font-weight: 600;
+				border-left: 1px solid #eeeeee;
+				border-right: 1px solid #eeeeee;	
+			}
+
+			#medals tr.noBorder {
+				background-color: inherit;
+				border: 0px;
+			}
+			#medals tr.noBorder td {
+				border: 0px;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -43,10 +69,10 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="/" class="logo">
-									<span class="symbol"><img src="images/logo.jpeg" alt="thehackerscrew" /></span><span class="title">thehackerscrew</span>
+<!-- 								<a href="/" class="logo">
+									<span class="symbol"><img src="images/logo.png" alt="thehackerscrew" /></span><span class="title">thehackerscrew</span>
 								</a>
-
+ -->
 							<!-- Nav -->
 								<nav>
 									<ul>
@@ -75,7 +101,47 @@
 								<h1>Accomplishments</h1>
 							</header>
 							<section>
-								<p>CTFs where we placed Top 5 or earned more than 50 rating points:</p>
+								<p style="font-size: 1.5em; margin-bottom: .8em;"><b>Medal Count:</b></p>
+								<div class="table-wrapper">
+									<table id="medals">
+										<thead>
+											<tr>
+												<th></th>
+												<th class="g"><i class="fas fa-medal"></i>&nbsp;Gold - 1st</th>
+												<th class="s"><i class="fas fa-medal"></i>&nbsp;Silver - 2nd</th>
+												<th class="b"><i class="fas fa-medal"></i>&nbsp;Bronze - 3rd</th>
+												<th>Total</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>2022</td>
+												<td>1</td>
+												<td>2</td>
+												<td>0</td>
+												<td>3</td>
+											</tr>
+											<tr>
+												<td>2021</td>
+												<td>8</td>
+												<td>3</td>
+												<td>3</td>
+												<td>14</td>
+											</tr>
+											<tr class="noBorder">
+												<td>Total</td>
+												<td>9</td>
+												<td>5</td>
+												<td>3</td>
+												<td>17</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</section>
+							<section>
+								<p style="font-size: 1.5em; margin-bottom: .8em;"><b>Competition Results:</b></p>
 							</section>
 							<!-- Table -->
 								<section>
@@ -90,6 +156,12 @@
 												</tr>
 											</thead>
 											<tbody>
+												<tr>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
+													<td style="text-align:left;">1</td>
+													<td><a class="ctflink" href="https://ctftime.org/event/1567" target="_blank" rel="noopener noreferrer">Space Heroes CTF</a></td>
+													<td>**.***</td>
+												</tr>
 												<tr>
 													<td></td>
 													<td style="text-align:left;">2</td>
@@ -115,7 +187,7 @@
 													<td>52.675</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1512" target="_blank" rel="noopener noreferrer">idekCTF 2021</a></td>
 													<td>49.120</td>
@@ -175,19 +247,19 @@
 													<td>35.350</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1440" target="_blank" rel="noopener noreferrer">Tamil CTF 2021</a></td>
 													<td>28.260</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1312" target="_blank" rel="noopener noreferrer">DownUnderCTF 2021</a></td>
 													<td>48.880</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1444" target="_blank" rel="noopener noreferrer">H@cktivityCon 2021 CTF</a></td>
 													<td>49.960</td>
@@ -199,7 +271,7 @@
 													<td>30.297</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1353" target="_blank" rel="noopener noreferrer">GrabCON CTF 2021</a></td>
 													<td>46.460</td>
@@ -211,7 +283,7 @@
 													<td>29.484</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1405" target="_blank" rel="noopener noreferrer">FwordCTF 2021</a></td>
 													<td>48.840</td>
@@ -235,7 +307,7 @@
 													<td>27.839</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1392" target="_blank" rel="noopener noreferrer">Securebug.se CTF Loki 2021</a></td>
 													<td>45.160</td>
@@ -247,7 +319,7 @@
 													<td>18.718</td>
 												</tr>
 												<tr>
-													<td style="text-align:right;"><i class="fas fa-crown"></i></td>
+													<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 													<td style="text-align:left;">1</td>
 													<td><a class="ctflink" href="https://ctftime.org/event/1362" target="_blank" rel="noopener noreferrer">S.H.E.L.L. CTF</a></td>
 													<td>47.520</td>
@@ -282,7 +354,7 @@
 							</section>
 							<ul class="copyright">
 								<li>&copy; 2022. All rights reserved</li>
-								<li>thehackerscrew</li>
+								<li>TheHackersCrew</li>
 							</ul>
 						</div>
 					</footer>
