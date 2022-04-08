@@ -47,6 +47,8 @@ table {
 	border-spacing: 0;
 }
 
+.pointer       { cursor: pointer; }
+
 body {
 	-webkit-text-size-adjust: none;
 }
