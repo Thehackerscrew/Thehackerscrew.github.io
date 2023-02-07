@@ -2580,6 +2580,40 @@ input, select, textarea {
 			opacity: 0.25;
 		}
 
+		.filtered {
+			opacity: 0.25;
+			text-decoration: line-through;
+		}
+
+		.filter-btn {
+			margin: 0 0.5em 1em 0.5em;
+			float: right;
+		}
+
+		.filter-text {
+			font-size: 1.25em;
+			padding-right: 10px;
+			float: right;
+		}
+
+		.filter::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		tr[year="2023h"] {
+			display: none;
+		}
+		tr[year="2022h"] {
+			display: none;
+		}
+
+		tr[year="2021h"] {
+			display: none;
+		}
+
+
 /* Tiles */
 
 	.tiles {
