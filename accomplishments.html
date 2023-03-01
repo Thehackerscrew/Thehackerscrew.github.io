@@ -131,10 +131,10 @@
 										<tbody>
 											<tr>
 												<td>2023</td>
-												<td>3</td>
+												<td>4</td>
 												<td>0</td>
 												<td>1</td>
-												<td>4</td>
+												<td>5</td>
 											</tr>
 											<tr>
 												<td>2022</td>
@@ -152,10 +152,10 @@
 											</tr>
 											<tr class="noBorder">
 												<td>Total</td>
-												<td>16</td>
+												<td>17</td>
 												<td>15</td>
 												<td>6</td>
-												<td>37</td>
+												<td>38</td>
 											</tr>
 										</tbody>
 									</table>
@@ -184,10 +184,22 @@
 										</thead>
 										<tbody id="ctf-events">
 											<tr year="2023">
+												<td></td>
+												<td style="text-align:left;">5</td>
+												<td><a class="ctflink" href="https://ctftime.org/event/1763" target="_blank" rel="noopener noreferrer">pbctf 2023</a></td>
+												<td>30.862</td>
+											</tr>
+											<tr year="2023">
+												<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
+												<td style="text-align:left;">1</td>
+												<td><a class="ctflink" href="https://ctftime.org/event/1880" target="_blank" rel="noopener noreferrer">Incognito 4.0</a></td>
+												<td>43.100</td>
+											</tr>
+											<tr year="2023">
 												<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
 												<td style="text-align:left;">1</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1732" target="_blank" rel="noopener noreferrer">LA CTF 2023</a></td>
-												<td>**.***</td>
+												<td>49.780</td>
 											</tr>
 											<tr year="2023">
 												<td style="text-align:right;"><i class="fas fa-crown c"></i></td>
@@ -520,6 +532,13 @@
 										</thead>
 										<tbody>
 											<tr>
+												<td><a class="ctflink" href="https://ctftime.org/event/1846" target="_blank" rel="noopener noreferrer">CrewCTF 2023</a></td>
+												<td>--</td>
+												<td>--</td>
+												<td>--</td>
+												<td>20.33</td>
+											</tr>
+											<tr>
 												<td><a class="ctflink" href="bsidesahmedabad.ctfd.io" target="_blank" rel="noopener noreferrer">Security BSides Ahmedabad CTF 2022</a></td>
 												<td>675</td>
 												<td>285</td>
@@ -531,7 +550,7 @@
 												<td>10,608</td>
 												<td>1,504</td>
 												<td>889</td>
-												<td>20.20</td>
+												<td>20.33</td>
 											</tr>
 										</tbody>
 									</table>
@@ -575,8 +594,31 @@
 				var originaltable = document.getElementById("ctfs").innerHTML;
 				var state = 0;
 				let hdrs = ["","Place","Event","Rating Points"];
+				window.onload = function() {
+					colorTable();
+				};
+
+				function colorTable() {
+					var table, rows, j = 1;
+					rows = document.getElementById("ctfs").rows;
+					for (i = 1; i < rows.length-1; i++) {
+						if (rows[i].getAttribute("year").length == 4) {
+							j = 1-j;
+							if (j == 0) {
+								rows[i].setAttribute("odd","y");
+							} else {
+								rows[i].setAttribute("odd","n");
+							}
+						}
+					}
+				}
 
 				function toggleYear(year) {
+					let ostate = state;
+					while (state !== 0) {
+						sortAccomplishments((ostate-ostate%2)/2+1);
+					}
+
 					const showing = document.querySelectorAll('[year="'+year+'"]');
 					const hidden = document.querySelectorAll('[year="'+year+'h"]');
 
@@ -587,11 +629,15 @@
 						element.setAttribute("year", year);
 					})
 					originaltable = document.getElementById("ctfs").innerHTML;
+
+					while (state !== ostate) {
+						sortAccomplishments((ostate-ostate%2)/2+1);
+					}
+					colorTable();
 				}
 
 				function sortAccomplishments(n) {
-
-					var hdr, table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+					var hdr, table, rows, switching, i, j, x, y, shouldSwitch, dir, switchcount = 0;
 					table = document.getElementById("ctfs");
 
 					document.getElementById("pl").innerHTML = hdrs[1];
@@ -609,18 +655,21 @@
 						table.innerHTML = originaltable;
 						state = 0;
 						hdr.innerHTML = hdrs[n];
+						colorTable();
 						return;
 					}
 					if (state == 4 && n == 2) {
 						table.innerHTML = originaltable;
 						state = 0;
 						hdr.innerHTML = hdrs[n];
+						colorTable();
 						return;
 					}
 					if (state == 6 && n == 3) {
 						table.innerHTML = originaltable;
 						state = 0;
 						hdr.innerHTML = hdrs[n];
+						colorTable();
 						return;
 					}
 					switching = true;
@@ -676,6 +725,7 @@
 						state = 2*n-1;
 						hdr.innerHTML = hdrs[n]+"&emsp;&#8593;";
 					}
+					colorTable();
 				}
 			</script>
 

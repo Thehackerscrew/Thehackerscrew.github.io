@@ -2402,7 +2402,7 @@ input, select, textarea {
 			border-right: 0;
 		}
 
-			table tbody tr:nth-child(2n + 1) {
+			table:not(#ctfs) tbody tr:nth-child(2n + 1) {
 				background-color: rgba(70, 70, 70, 0.75);
 			}
 
@@ -2611,6 +2611,10 @@ input, select, textarea {
 
 		tr[year="2021h"] {
 			display: none;
+		}
+
+		tr[odd="y"] {
+			background-color: rgba(70, 70, 70, 0.75);
 		}
 
 
