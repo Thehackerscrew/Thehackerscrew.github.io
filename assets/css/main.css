@@ -2837,12 +2837,12 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			.tiles {
-				margin: -1.25em 0 0 -1.25em;
+				margin: -1em 0 0 -1em;
 			}
 
 				.tiles article {
-					width: calc(33.33333% - 1.25em);
-					margin: 1.25em 0 0 1.25em;
+					width: calc(25% - 1em);
+					margin: 1em 0 0 1em;
 				}
 
 		}
@@ -2850,12 +2850,12 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.tiles {
-				margin: -2.5em 0 0 -2.5em;
+				margin: -2em 0 0 -2em;
 			}
 
 				.tiles article {
-					width: calc(50% - 2.5em);
-					margin: 2.5em 0 0 2.5em;
+					width: calc(33.33333% - 2em);
+					margin: 2em 0 0 2em;
 				}
 
 		}
@@ -2867,7 +2867,7 @@ input, select, textarea {
 			}
 
 				.tiles article {
-					width: calc(50% - 1.25em);
+					width: calc(33.33333% - 1.25em);
 					margin: 1.25em 0 0 1.25em;
 				}
 
@@ -2887,8 +2887,8 @@ input, select, textarea {
 			}
 
 				.tiles article {
-					width: 100%;
-					margin: 1.25em 0 0 0;
+					width: calc(50% - 1.25em);
+					margin: 1.25em 0 0 1.25em;
 				}
 
 		}
