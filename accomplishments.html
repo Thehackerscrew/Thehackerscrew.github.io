@@ -831,14 +831,6 @@
 								}
 							} else {
 								if (dir == "a") {
-									if (x == null) {
-										console.log(rows[i].getElementsByTagName("td"));
-										console.log("x: "+i + " n: "+n);
-									}
-									if (y == null) {
-										console.log(rows[i+1].getElementsByTagName("td"));
-										console.log("y: "+(i+1) + " n: "+n);
-									}
 									if (Number(x.innerHTML) > Number(y.innerHTML)) {
 										shouldSwitch = true;
 										break;
