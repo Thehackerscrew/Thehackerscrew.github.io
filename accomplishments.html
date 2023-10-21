@@ -752,7 +752,7 @@
 				function toggleYear(year) {
 					let ostate = state;
 					while (state !== 0) {
-						sortAccomplishments((ostate-ostate%2)/2+1);
+						sortAccomplishments((ostate+ostate%2)/2);
 					}
 
 					const showing = document.querySelectorAll('[year="'+year+'"]');
@@ -767,7 +767,7 @@
 					originaltable = document.getElementById("ctfs").innerHTML;
 
 					while (state !== ostate) {
-						sortAccomplishments((ostate-ostate%2)/2+1);
+						sortAccomplishments((ostate+ostate%2)/2);
 					}
 					colorTable();
 				}
@@ -831,6 +831,14 @@
 								}
 							} else {
 								if (dir == "a") {
+									if (x == null) {
+										console.log(rows[i].getElementsByTagName("td"));
+										console.log("x: "+i + " n: "+n);
+									}
+									if (y == null) {
+										console.log(rows[i+1].getElementsByTagName("td"));
+										console.log("y: "+(i+1) + " n: "+n);
+									}
 									if (Number(x.innerHTML) > Number(y.innerHTML)) {
 										shouldSwitch = true;
 										break;
