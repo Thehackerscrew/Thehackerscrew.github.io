@@ -2402,7 +2402,7 @@ input, select, textarea {
 			border-right: 0;
 		}
 
-			table:not(#ctfs) tbody tr:nth-child(2n + 1) {
+			table:not(#ctfs) tbody tr:nth-child(2n) {
 				background-color: rgba(70, 70, 70, 0.75);
 			}
 
@@ -2602,6 +2602,9 @@ input, select, textarea {
 			display: table;
 		}
 
+		tr[year="2024h"] {
+			display: none;
+		}
 		tr[year="2023h"] {
 			display: none;
 		}
