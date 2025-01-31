@@ -102,6 +102,7 @@
             display: flex;
             margin: 0; /* Removes extra space */
             gap: 15px;
+			z-index: 10; /* Ensures navigation is clickable */
         }
 
         #navigation a button {
@@ -122,7 +123,7 @@
         }
 
         #navigation a button:hover {
-            background-color: rgb(106, 106, 106);
+            background-color: rgb(22, 22, 22);
             /* Solid red */
             transform: scale(1.1);
         }
@@ -153,28 +154,25 @@
 
 <body>
   <div id="wrapper">
-    <!-- Top-Left and Bottom-Right images absolutely positioned -->
-    <img id="top-left" src="images/+++.png" alt="Decorative Image">
-    <img id="bottom-right" src="images/+++.png" alt="Decorative Image">
+    <!-- Top-Left Image -->
+	<img id="top-left" src="images/+++.png" alt="Decorative Image">
 
-    <!-- Header with logo top-left and nav top-right -->
-    <div id="header">
-      <!-- Logo top-left -->
-      
-      <!-- Navigation top-right -->
-      <div id="header">
-        
-        <div id="navigation">
-            <a href="members">
-                <button>Members</button>
-            </a>
-            <a href="accomplishments">
-                <button>Contests</button>
-            </a>
-            <a href="blog"><button>Blog</button></a>
-        </div>
-    </div>
-
+	<!-- Bottom-Right Image -->
+	<img id="bottom-right" src="images/+++.png" alt="Decorative Image">
+<div id="header">
+	<a href="index" id="logo">
+		
+	</a>
+	<div id="navigation">
+		<a href="members">
+			<button>Members</button>
+		</a>
+		<a href="accomplishments">
+			<button>Contests</button>
+		</a>
+		<a href="blog"><button>Blog</button></a>
+	</div>
+</div>
     <!-- Main content area that flexes to fill space -->
     <div id="main">
       <!-- Logo Container in the center -->
