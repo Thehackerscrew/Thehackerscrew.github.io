@@ -1,137 +1,201 @@
 <!DOCTYPE HTML>
-<!-- made by @CSN3RD -->
-<html>
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-208072160-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+<html lang="en">
+<head>
+	<title>TheHackersCrew Home Page</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Add Font Awesome for icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<style>
+        html, body {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          height: 100%; /* So the wrapper can be 100% of viewport */
+          background: black;
+          color: white;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
 
-		  gtag('config', 'UA-208072160-1');
-		</script>
-		<title>TheHackersCrew Home Page</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="TheHackersCrew is one of the best CTF teams in the world. Click to learn more.">
-        <meta name="author" content="TheHackersCrew">
-        <meta name="keywords" content="thehackerscrew, cybersecurity, CTF">
-        <meta property="og:title" content="TheHackersCrew Home Page"/>
-        <meta property="og:description" content="TheHackersCrew is one of the best CTF teams in the world. Click to learn more."/>
-        <meta property="og:image" content="https://www.thehackerscrew.team/images/thc_icon_processed.png"/>
-        <meta property="og:url" content="https://www.thehackerscrew.team/"/>
-        <meta property="og:site_name" content="TheHackersCrew"/>
-        <meta property="og:type" content="website"/>
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:site" content="@thehackerscrew1">
-        <meta property="twitter:creator" content="@thehackerscrew1">
-        <meta property="twitter:title" content="TheHackersCrew Home Page">
-        <meta property="twitter:description" content="TheHackersCrew is one of the best CTF teams in the world. Click to learn more.">
-        <meta property="twitter:image" content="https://www.thehackerscrew.team/images/thc_icon_processed.png">
-        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="icon" type="image/x-icon" href="images/thc_icon_processed.png" />
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
+        /* The flex container filling the screen */
+        #wrapper {
+          display: flex;
+          flex-direction: column; 
+          min-height: 100vh; /* Fill the full browser height */
+          position: relative;
+        }
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+        /* Header sits at the top */
+        .header {
+            display: flex;
+            left: 15px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-top: 50px; /* Reduces space above the header */
+            position: relative; /* Ensures it stays above other content */
+            z-index: 10; /* Keeps it on top */
+        }
 
-							<!-- Logo -->
-<!-- 								<a href="/" class="logo">
-									<span class="symbol"><img src="images/thc_icon_processed.png" alt="thehackerscrew" /></span><span class="title">thehackerscrew</span>
-								</a>
- -->
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
+        /* Main content flexes to fill space between header and footer */
+        #main {
+          flex: 1; 
+          display: flex;
+          justify-content: center; /* center horizontally */
+          align-items: center;     /* center vertically */
+          position: relative;
+          z-index: 2;
+        }
 
-						</div>
-					</header>
+        #logo img {
+            margin-left: 12.2%; 
+            margin-top: 0; /* Removes extra space */
+            height: 130px; /* Adjust to make it smaller */
+        }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="/" class="icon solid fa-home">&emsp;Home</a></li>
-							<li><a href="accomplishments" class="icon solid fa-award">&emsp;Accomplishments</a></li>
-							<li><a href="members" class="icon solid fa-users">&emsp;Members</a></li>
-						</ul>
-					</nav>
+        /* The logo in the middle can be sized however you want */
+        #logo-container {
+          width: 500px;
+          height: auto;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+        }
+        #logo-container img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1 style="margin-bottom: .4em;">TheHackersCrew</h1>
-								<p style="margin-bottom: .8em;">&nbsp;[ the hackers that screw ]</p>
-								<hr style="margin-top: .8em;">
-							</header>
-							<br>
-							<section>
-								<div class="row gtr-uniform">
-									<div class="col-8">
-										<h2 style="text-transform: none; letter-spacing: normal;">About Us</h2>
-										<p>TheHackersCrew is a multinational cybersecurity team that actively participates in CTF (Capture The Flag) competitions. Originally founded at the end of 2020, recruitment began several months later in April 2021. Today, we boast a diverse roster of professionals and students from all around the world, spanning 15+ countries across 6 continents!<br><br>According to CTFtime, TheHackersCrew is the 3rd highest ranked team in 2024. We ranked 11th, 13th, and 24th in the 2023, 2022 and 2021 seasons respectively. In total, the team has won 🥇 1st in 28 CTFs, 🥈 2nd in 26 CTFs, and 🥉 3rd in 16 CTFs.</p>
-										<div class="row gtr-uniform">
-											<div class="col">
-												<ul class="actions" style="margin-bottom: none;">
-													<li style="display: list-item;"><a href="/members" class="button icon solid fa-users" style="padding-left: 5em; padding-right: 5em;">Members</a></li>
-												</ul>
-											</div>
-											<div class="col">
-												<ul class="actions" style="margin-bottom: none;">
-													<li style="display: list-item;"><a href="/accomplishments" class="button icon solid fa-award" style="padding-left: 5em; padding-right: 5em;">Accomplishments</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="col-4">
-										<span class="image fit"><img src="images/thc_icon_processed.png" alt="thehackerscrew" /></span>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
+        #top-left {
+          position: absolute;
+          top: 50px;
+          left: 40px;
+          width: 100px;
+          height: auto;
+        }
+        #bottom-right {
+          position: absolute;
+          bottom: 40px;
+          right: 40px;
+          width: 100px;
+          height: auto;
+        }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2 style="text-transform: none;">Follow our journey</h2>
-								<ul class="icons">
-									<li style="text-align: center;"><a href="https://ctftime.org/team/85618" class="icon solid style2 fa-envelope-square fa-rotate-270" title="CTFtime" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">CTFtime</p></li>
-									<li style="text-align: center;"><a href="https://twitter.com/thehackerscrew1" class="icon brands style2 fa-twitter" title="Twitter" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">Twitter</p></li>
-									<li style="text-align: center;"><a href="https://github.com/Thehackerscrew" class="icon brands style2 fa-github" title="Github" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">Github</p></li>									
-								</ul>
-							</section>
-							<section>
-								<h3 style="text-transform: none;">Latest Twitter Posts</h3>
-								<a class="twitter-timeline" data-dnt="true" data-theme="dark" data-chrome="transparent noheader nofooter" data-height="200px" href="https://twitter.com/thehackerscrew1?ref_src=twsrc%5Etfw">Tweets by thehackerscrew1</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-							</section>
-							<ul class="copyright">
-								<li>&copy; 2024. All rights reserved</li>
-								<li>TheHackersCrew</li>
-							</ul>
-						</div>
-					</footer>
+        /* Footer at the bottom of the page */
+        #footer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+          padding: 20px 0;
+          /* Optionally, a background: #111; etc. */
+        }
 
-			</div>
+        /* Navigation Container */
+        #navigation {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            margin: 0; /* Removes extra space */
+            gap: 15px;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        #navigation a button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Light red */
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-	</body>
+        #navigation a button:hover {
+            background-color: rgb(106, 106, 106);
+            /* Solid red */
+            transform: scale(1.1);
+        }
+
+
+        #social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        #social-links a {
+            font-size: 1em;
+            color: white;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        #copyright {
+            font-size: 14px;
+            color: #888;
+        }
+	</style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Top-Left and Bottom-Right images absolutely positioned -->
+    <img id="top-left" src="images/+++.png" alt="Decorative Image">
+    <img id="bottom-right" src="images/+++.png" alt="Decorative Image">
+
+    <!-- Header with logo top-left and nav top-right -->
+    <div id="header">
+      <!-- Logo top-left -->
+      
+      <!-- Navigation top-right -->
+      <div id="navigation">
+        <a href="members"><button>Members</button></a>
+        <a href="accomplishments"><button>Contests</button></a>
+        <a href="blog"><button>Blog</button></a>
+      </div>
+    </div>
+
+    <!-- Main content area that flexes to fill space -->
+    <div id="main">
+      <!-- Logo Container in the center -->
+      <div id="logo-container">
+        <a href="#content">
+          <img src="images/thc title.png" alt="TheHackersCrew Logo">
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer at bottom -->
+    <footer id="footer">
+      <div id="social-links">
+        <a href="https://ctftime.org/team/85618" target="_blank">
+            <i class="fa-solid fa-flag"></i>
+        </a>
+        <a href="https://x.com/thehackerscrew1" target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://github.com/Thehackerscrew" target="_blank">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+      </div>
+      <div id="copyright">
+        © 2025 Thehackerscrew. All rights reserved.
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
