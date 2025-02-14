@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- made by @CSN3RD -->
+
 <html>
 	<head>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -30,100 +30,364 @@
         <meta property="twitter:description" content="Check out the accomplishments of TheHackersCrew, one of the best CTF teams in the world!">
         <meta property="twitter:image" content="https://www.thehackerscrew.team/images/thc_icon_processed.png">
         <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" type="image/x-icon" href="images/thc_icon_processed.png" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<style>
-			.c { color: #d6af36; }
-			.g { color: #d6af36; }
-			.s { color: #d7d7d7; }
-			.b { color: #824a02; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-			#medals th {
-				padding-top: 1em;
-				border-top: 1px solid #eeee;
-				border-left: 1px solid #eeee;
-				border-right: 1px solid #eeee;
-			}
+        body {
+            position: relative;
+            background:
+                /* Vertical lines */
+                linear-gradient(90deg,
+                    transparent 49px,
+                    rgba(255, 0, 0, 0.1) 49px,
+                    rgba(255, 0, 0, 0.1) 50px,
+                    transparent 50px),
+                /* Horizontal lines */
+                linear-gradient(0deg,
+                    transparent 49px,
+                    rgba(255, 0, 0, 0.1) 49px,
+                    rgba(255, 0, 0, 0.1) 50px,
+                    transparent 50px),
+                /* Base background */
+                #0a0a0a;
+            background-size: 50px 50px;
+        }
 
-			#medals td {
-				font-weight: 600;
-				border-left: 1px solid #eeeeee;
-				border-right: 1px solid #eeeeee;	
-			}
+        /* Add this to make sure content stays above grid */
 
-			#events th {
-				padding-top: 1em;
-				border-top: 1px solid #eeee;
-				border-left: 1px solid #eeee;
-				border-right: 1px solid #eeee;
-			}
 
-			#events td {
-				font-weight: 600;
-				border-left: 1px solid #eeeeee;
-				border-right: 1px solid #eeeeee;	
-			}
+        /* Optional: Add animated grid effect */
 
-			#medals tr.noBorder {
-				background-color: inherit;
-				border: 0px;
-			}
-			#medals tr.noBorder td {
-				border: 0px;
-			}
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
 
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        #top-left,
+        #bottom-right {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            z-index: 1;
+        }
+
+        #top-left {
+            top: 50px;
+            left: 40px;
+        }
+
+        #bottom-right {
+            bottom: 40px;
+            right: 40px;
+        }
+
+        .container {
+            margin-top: 0%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+            display: flex;
+            left: 15px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-top: 2px; /* Reduces space above the header */
+            position: relative; /* Ensures it stays above other content */
+            z-index: 10; /* Keeps it on top */
+        }
+        #logo img {
+            margin-left:12.2%;
+            margin-top: 0; /* Removes extra space */
+            height: 130px; /* Adjust to make it smaller */
+        }
+        #wrapper {
+            margin-top: 10px;
+
+        }
+        /* Footer at the bottom of the page */
+        #footer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+          padding: 20px 0;
+          /* Optionally, a background: #111; etc. */
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Navigation Container */
+        #navigation {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            margin: 0; /* Removes extra space */
+            gap: 15px;
+        }
+
+        #navigation a button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Light red */
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #navigation a button:hover {
+            background-color: rgb(106, 106, 106);
+            /* Solid red */
+            transform: scale(1.1);
+        }		
+
+			/* Main Content Area */
+			#main {
+				background-color: transparent;
+				position: relative;
+				z-index: 3;
+				flex: 1;
+				padding: 80px 20px 40px;
+				margin-top: 0;
+			}
+		
+			.inner {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+				background:transparent;
+				border-radius: 10px;
+			}
+		
+			/* Tables Styling */
+			.table-wrapper {
+				overflow-x: auto;
+				margin: 2rem 0;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 8px;
+				background: rgba(0, 0, 0, 0.5);
+			}
+		
+			#medals, #ctfs, #events {
+				width: 100%;
+				border-collapse: collapse;
+				background: transparent;
+			}
+		
+			#medals th, #ctfs th, #events th {
+				padding: 15px;
+				text-align: center;
+				background: rgba(0, 0, 0, 0.7);
+				border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+			}
+		
+			#medals td, #ctfs td, #events td {
+				padding: 12px;
+				text-align: center;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+		
+			/* Medal Specific Styling */
+			#medals th.g { color: #ffd700; }
+			#medals th.s { color: #c0c0c0; }
+			#medals th.b { color: #cd7f32; }
+		
+			.fa-medal {
+				font-size: 1.2em;
+				margin-right: 8px;
+			}
+		
+			/* Filter Controls */
+			.filter {
+				margin: 2rem 0;
+				display: flex;
+				gap: 10px;
+				align-items: center;
+			}
+		
+			.filter-btn {
+				background: rgba(255, 255, 255, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				color: #fff;
+				padding: 8px 16px;
+				border-radius: 20px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+		
+			.filter-btn.filtered {
+				background: rgba(255, 255, 255, 0.3);
+				border-color: #fff;
+			}
+		
+			.filter-btn:hover {
+				background: rgba(255, 255, 255, 0.2);
+			}
+		
+			/* Links and Interactions */
+			.ctflink {
+				color: #e8e8e8;
+				text-decoration: none;
+			}
+		
+			.ctflink:hover {
+				text-decoration: underline;
+			}
+		
+			/* Crown Icon */
+			.fa-crown.c {
+				color: #ffd700;
+			}
+			#social-links {
+    display: flex;
+    gap: 20px; /* Space between logos */
+    margin-bottom: 10px; 
+}
+
+#social-links img {
+    height: 60px; /* Adjust logo size */
+    width: auto;
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+#social-links img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+		
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				#main {
+					padding: 60px 15px 30px;
+				}
+		
+				.inner {
+					padding: 15px;
+				}
+		
+				#medals th, #ctfs th, #events th {
+					padding: 10px;
+					font-size: 0.9em;
+				}
+		
+				#medals td, #ctfs td, #events td {
+					padding: 8px;
+					font-size: 0.9em;
+				}
+		
+				.filter {
+					flex-wrap: wrap;
+				}
+			}
+		
+			@media (max-width: 480px) {
+				#top-left, #bottom-right {
+					width: 60px;
+				}
+			}
+			tr:hover td {
+    background-color: rgba(46, 46, 46, 0.3); /* Light golden with transparency */
+    transition: background-color 0.3s ease;
+}
+#copyright {
+    font-size: 14px;
+    color: #888; /* Light grey color */
+    text-align: center;
+}
+tr[year="2024h"] {
+            display: none;
+        }
+        tr[year="2023h"] {
+            display: none;
+        }
+        tr[year="2022h"] {
+            display: none;
+        }
+
+        tr[year="2021h"] {
+            display: none;
+        }
 		</style>
 	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<body class="is-preload">	
+		<div id="wrapper">
+			<!-- Top-Left Image -->
+			<img id="top-left" src="images/+++.png" alt="Decorative Image">
+			
+		
+			
+			<!-- Bottom-Right Image -->
+			<img id="bottom-right" src="images/+++.png" alt="Decorative Image">
+		</div>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
-
-							<!-- Logo -->
-<!-- 								<a href="/" class="logo">
-									<span class="symbol"><img src="images/thc_icon_processed.png" alt="thehackerscrew" /></span><span class="title">thehackerscrew</span>
-								</a>
- -->
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
-
-						</div>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="/" class="icon solid fa-home">&emsp;Home</a></li>
-							<li><a href="accomplishments" class="icon solid fa-award">&emsp;Accomplishments</a></li>
-							<li><a href="members" class="icon solid fa-users">&emsp;Members</a></li>
-						</ul>
-					</nav>
-
+        <div id="header">
+            <a href="./test.html" id="logo">
+                <img src="images/thcicon.png" alt="Logo">
+            </a>
+            <div id="navigation">
+				<a href="members">
+					<button>Members</button>
+				</a>
+				<a href="">
+					<button>Contests</button>
+				</a>
+				<a href=""><button>Blog</button></a>
+			</div>
+        </div>
+<!--        <div id="navigation">
+            <a href="./test.html" id="logo"><img src="images/thcicon.png" alt="Logo"></a>
+            <a href="./members-new.html"><button>Members</button></a>
+            <a href="./accomplishments.html"><button>Contests</button></a>
+            <a href="/blog"><button>Blog</button></a>
+        </div>
+-->    
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<header>
-								<h1>Accomplishments</h1>
-							</header>
 							<section>
-								<p style="font-size: 1.5em; margin-bottom: .8em;"><b>Medal Count:</b></p>
+								<p style="font-size: 1em; margin-bottom: .8em;"><b>Medal Count:</b></p>
 								<div class="table-wrapper">
 									<table id="medals">
 										<thead>
 											<tr>
 												<th></th>
-												<th class="g"><i class="fas fa-medal"></i>&nbsp;Gold - 1st</th>
-												<th class="s"><i class="fas fa-medal"></i>&nbsp;Silver - 2nd</th>
-												<th class="b"><i class="fas fa-medal"></i>&nbsp;Bronze - 3rd</th>
+												<th class="g"><i class="fas fa-medal"></i>&nbsp;Gold</th>
+												<th class="s"><i class="fas fa-medal"></i>&nbsp;Silver</th>
+												<th class="b"><i class="fas fa-medal"></i>&nbsp;Bronze</th>
 												<th>Total</th>
 
 											</tr>
@@ -179,7 +443,6 @@
 									<button class="filtered filter-btn" onclick="toggleYear('2022');this.classList.toggle('filtered');" id="2022-btn">2022</button>
 									<button class="filtered filter-btn" onclick="toggleYear('2023');this.classList.toggle('filtered');" id="2023-btn">2023</button>
 									<button class="filter-btn" onclick="toggleYear('2024');this.classList.toggle('filtered');" id="2024-btn">2024</button>	
-									<p class="filter-text">Filter by year:</p>								
 								</div>
 								<div class="table-wrapper">
 									<table id="ctfs">
@@ -193,7 +456,7 @@
 										</thead>
 										<tbody id="ctf-events">
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>										
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2403" target="_blank" rel="noopener noreferrer">ASIS CTF Finals 2024</a></td>
 												<td>137.829</td>
@@ -211,13 +474,13 @@
 												<td>71.690</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2520" target="_blank" rel="noopener noreferrer">Securinets CTF Quals 2024</a></td>
 												<td>127.817</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d56a00;"></i>
 												<td style="text-align:left;">3</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2484" target="_blank" rel="noopener noreferrer">justCTF 2024 finals</a></td>
 												<td>29.100</td>
@@ -253,7 +516,7 @@
 												<td>99.461</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2284" target="_blank" rel="noopener noreferrer">DownUnderCTF 2024</a></td>
 												<td>100.804</td>
@@ -313,7 +576,7 @@
 												<td>24.144</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2288" target="_blank" rel="noopener noreferrer">cr3 CTF 2024</a></td>
 												<td>31.574</td>
@@ -325,7 +588,7 @@
 												<td>96.500</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2302" target="_blank" rel="noopener noreferrer">UTCTF 2024</a></td>
 												<td>69.660</td>
@@ -361,7 +624,7 @@
 												<td>45.477</td>
 											</tr>
 											<tr year="2024">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2085" target="_blank" rel="noopener noreferrer">IrisCTF 2024</a></td>
 												<td>33.614</td>
@@ -373,7 +636,7 @@
 												<td>84.387</td>
 											</tr>
 											<tr year="2023h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/2153" target="_blank" rel="noopener noreferrer">BackdoorCTF 2023</a></td>
 												<td>49.418</td>
@@ -427,7 +690,7 @@
 												<td>21.499</td>
 											</tr>
 											<tr year="2023h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1979" target="_blank" rel="noopener noreferrer">FE-CTF 2023: The UniPwnie Experience</a></td>
 												<td>29.798</td>
@@ -469,13 +732,13 @@
 												<td>48.538</td>
 											</tr>
 											<tr year="2023h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1954" target="_blank" rel="noopener noreferrer">DownUnderCTF 2023</a></td>
 												<td>65.850</td>
 											</tr>
 											<tr year="2023h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1960" target="_blank" rel="noopener noreferrer">Bauhinia CTF 2023</a></td>
 												<td>34.819</td>
@@ -535,7 +798,7 @@
 												<td>31.996</td>
 											</tr>
 											<tr year="2023h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1860" target="_blank" rel="noopener noreferrer">RITSEC CTF 2023</a></td>
 												<td>44.295</td>
@@ -601,7 +864,7 @@
 												<td>77.431</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1758" target="_blank" rel="noopener noreferrer">niteCTF</a></td>
 												<td>33.450</td>
@@ -625,7 +888,7 @@
 												<td>49.240</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1625" target="_blank" rel="noopener noreferrer">DownUnderCTF 2022</a></td>
 												<td>46.447</td>
@@ -637,7 +900,7 @@
 												<td>84.458</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1656" target="_blank" rel="noopener noreferrer">corCTF 2022 (_TTT_)</a></td>
 												<td>35.549</td>
@@ -649,7 +912,7 @@
 												<td>69.280</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1706" target="_blank" rel="noopener noreferrer">DiceCTF @ HOPE</a></td>
 												<td>71.655</td>
@@ -667,7 +930,7 @@
 												<td>46.640</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1672" target="_blank" rel="noopener noreferrer">TyphoonCon CTF 2022</a></td>
 												<td>28.864</td>
@@ -685,13 +948,13 @@
 												<td>33.200</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://www.facebook.com/permalink.php?story_fbid=124861226860016&id=104756755537130" target="_blank" rel="noopener noreferrer">Securinets CTF Finals 2022</a></td>
 												<td>00.000</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1496" target="_blank" rel="noopener noreferrer">San Diego CTF 2022</a></td>
 												<td>36.585</td>
@@ -703,13 +966,13 @@
 												<td>74.609</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1630" target="_blank" rel="noopener noreferrer">NahamCon CTF 2022</a></td>
 												<td>36.915</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1617" target="_blank" rel="noopener noreferrer">Securinets CTF Quals 2022</a></td>
 												<td>75.162</td>
@@ -721,7 +984,7 @@
 												<td>42.657</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1594" target="_blank" rel="noopener noreferrer">nullcon HackIM 2022</a></td>
 												<td>36.568</td>
@@ -733,7 +996,7 @@
 												<td>47.880</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1548" target="_blank" rel="noopener noreferrer">VishwaCTF 2022</a></td>
 												<td>31.185</td>
@@ -751,7 +1014,7 @@
 												<td>24.411</td>
 											</tr>
 											<tr year="2022h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1593" target="_blank" rel="noopener noreferrer">UMDCTF 2022</a></td>
 												<td>52.675</td>
@@ -763,13 +1026,13 @@
 												<td>49.120</td>
 											</tr>
 											<tr year="2021h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1501" target="_blank" rel="noopener noreferrer">TFC CTF 2021</a></td>
 												<td>36.405</td>
 											</tr>
 											<tr year="2021h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1481" target="_blank" rel="noopener noreferrer">Damncon 2021</a></td>
 												<td>25.816</td>
@@ -829,7 +1092,7 @@
 												<td>49.960</td>
 											</tr>
 											<tr year="2021h">
-												<td></td>
+												<td style="text-align:right;"><i class="fa-solid fa-crown" style="color: #d2d2d2;"></i>
 												<td style="text-align:left;">2</td>
 												<td><a class="ctflink" href="https://ctftime.org/event/1427" target="_blank" rel="noopener noreferrer">TMUCTF 2021</a></td>
 												<td>30.297</td>
@@ -954,30 +1217,8 @@
 						</div>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2 style="text-transform: none;">Follow our journey</h2>
-								<ul class="icons">
-									<li style="text-align: center;"><a href="https://ctftime.org/team/85618" class="icon solid style2 fa-envelope-square fa-rotate-270" title="CTFtime" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">CTFtime</p></li>
-									<li style="text-align: center;"><a href="https://twitter.com/thehackerscrew1" class="icon brands style2 fa-twitter" title="Twitter" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">Twitter</p></li>
-									<li style="text-align: center;"><a href="https://github.com/Thehackerscrew" class="icon brands style2 fa-github" title="Github" target="_blank" rel="noopener noreferrer"></a><p style="margin-bottom: 0; margin-top: .4em;">Github</p></li>									
-								</ul>
-							</section>
-							<section>
-								<h3 style="text-transform: none;">Latest Twitter Posts</h3>
-								<a class="twitter-timeline" data-dnt="true" data-theme="dark" data-chrome="transparent noheader nofooter" data-height="200px" href="https://twitter.com/thehackerscrew1?ref_src=twsrc%5Etfw">Tweets by thehackerscrew1</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-							</section>
-							<ul class="copyright">
-								<li>&copy; 2024. All rights reserved</li>
-								<li>TheHackersCrew</li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
+				
+			
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -1123,6 +1364,21 @@
 					colorTable();
 				}
 			</script>
-
+    <footer id="footer">
+        <div id="social-links">
+            <a href="https://ctftime.org/team/85618" target="_blank">
+                <i class="fa-solid fa-flag" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://x.com/thehackerscrew1" target="_blank">
+                <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://github.com/ThehackerscrewB" target="_blank">
+                <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
+            </a>
+        </div>
+        <div id="copyright">
+            © 2025 Thehackerscrew. All rights reserved.
+        </div>
+    </footer>
 	</body>
 </html>
