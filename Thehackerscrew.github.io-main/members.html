@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            position: relative;
+            background:
+                /* Vertical lines */
+                linear-gradient(90deg,
+                    transparent 49px,
+                    rgba(255, 0, 0, 0.1) 49px,
+                    rgba(255, 0, 0, 0.1) 50px,
+                    transparent 50px),
+                /* Horizontal lines */
+                linear-gradient(0deg,
+                    transparent 49px,
+                    rgba(255, 0, 0, 0.1) 49px,
+                    rgba(255, 0, 0, 0.1) 50px,
+                    transparent 50px),
+                /* Base background */
+                #0a0a0a;
+            background-size: 50px 50px;
+        }
+
+        /* Add this to make sure content stays above grid */
+
+
+        /* Optional: Add animated grid effect */
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        #top-left,
+        #bottom-right {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            z-index: 1;
+            
+        }
+
+        #top-left {
+            top: 50px;
+            left: 40px;
+        }
+
+        #bottom-right {
+            bottom: 40px;
+            right: 40px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2; /* Ensure content stays above decorative images */
+            margin-top: 0%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+    display: flex;
+    left: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 2px; /* Reduces space above the header */
+    position: relative; /* Ensures it stays above other content */
+    z-index: 10; /* Keeps it on top */
+}
+#logo img {
+    margin-left:12.2%;
+    margin-top: 0; /* Removes extra space */
+    height: 130px; /* Adjust to make it smaller */
+}
+#wrapper {
+    margin-top: 10px;
+    position: relative; /* Makes absolute images relative to wrapper */
+  min-height: 100vh;
+  z-index: 1; /* Base layer */
+}
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Navigation Container */
+        #navigation {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            margin: 0; /* Removes extra space */
+            gap: 15px;
+        }
+
+        #navigation a button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Light red */
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #navigation a button:hover {
+            background-color: rgb(22, 22, 22);
+            /* Solid red */
+            transform: scale(1.1);
+        }
+
+        .members {
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .flip-card {
+            background: transparent;
+            perspective: 1000px;
+            min-height: 335px;
+            transform: translateZ(0); /* Hardware acceleration fix */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: transparent;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 0px solid #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: transparent;
+            background-color: rgba(0, 0, 0, 0.3);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* The back gets rotated and can scroll if content is too big */
+        .flip-card-back {
+            transform: rotateY(180deg);
+
+            /* 3) Overflow scroll with hidden scrollbar */
+            overflow-y: auto;
+            scrollbar-width: none;           /* Firefox */
+            -ms-overflow-style: none;        /* IE/Edge */
+        }
+        .flip-card-back::-webkit-scrollbar {
+            display: none;                   /* Chrome/Safari */
+        }
+
+        /* Flip effect trigger (already in your code) */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .member-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 2px solid #2a2a2a;
+            cursor: pointer;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: #fff;
+        }
+
+        .member-role {
+            color: #888;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .member-bio {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .member-details {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .member-socials {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: auto;
+            pointer-events: auto;
+        }
+
+        .member-socials a {
+            color: #a4a4a4;
+            /* White color */
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .member-socials a:hover {
+            color: #ffffff;
+            /* Blue hover effect */
+        }
+
+        /* Add these new rules */
+        .flip-card {
+            cursor: pointer;
+        }
+
+
+        /* Add this to your existing CSS */
+        .member-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .member-tag {
+            display: inline-flex;
+            /* Changed from flex */
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 15px;
+        }
+
+        .member-tag img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Add these color variations */
+        .member-tag-text.pwn {
+            color: #a51355;
+        }
+
+        .member-tag-text.orange {
+            color: #ff8000;
+        }
+
+        .member-tag-text.blue {
+            color: #74C0FC;
+        }
+
+        .member-tag-text.green {
+            color: #44ff44;
+        }
+        .member-tag-text.blockchain {
+            color: #ff9494;
+        }
+
+        .member-tag-text.purple {
+            color: #B197FC;
+            ;
+        }
+
+        .member-tag-text.infra {
+            color: #aa1010;
+        }
+
+        .member-tag-text.yellow {
+            color: #ffbc03;
+        }
+
+        /* Modify existing tag text rule */
+        .member-tag-text {
+            font-weight: bold;
+            font-size: 0.8rem;
+            /* Remove default color */
+        }
+
+
+        @media (max-width: 768px) {
+            .members {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+        #footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* Space from content to prevent overlap */
+    padding: 20px 0;
+}
+
+#social-links {
+    display: flex;
+    gap: 20px; /* Space between logos */
+    margin-bottom: 10px; 
+}
+
+#social-links img {
+    height: 60px; /* Adjust logo size */
+    width: auto;
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+#social-links img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+#copyright {
+    font-size: 14px;
+    color: #888; /* Light grey color */
+    text-align: center;
+}
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Top-Left Image -->
+        <img id="top-left" src="images/+++.png" alt="Decorative Image">
+
+        <!-- Bottom-Right Image -->
+        <img id="bottom-right" src="images/+++.png" alt="Decorative Image">
+    
+    <div id="header">
+        <a href="/" id="logo">
+            <img src="images/thcicon.png" alt="Logo">
+        </a>
+        <div id="navigation">
+            <a href="blogs">
+                <button>Blog</button>
+            </a>
+            <a href="contests">
+                <button>Contests</button>
+            </a>
+            <a href="members">
+                <button>Members</button>
+            </a>
+        </div>
+        
+    </div>
+    <div class="container">
+
+
+        <div class="members">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/7Rocky.jpg" class="member-img" alt="7Rocky">
+                        <div class="member-name">7Rocky</div>
+                        <div class="member-role">among others...</div>
+
+                        <!-- Tags container -->
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #a51355;"></i>
+                                <span class="member-tag-text pwn">PWN</span>
+                            </div>
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+                        </div>
+
+                        <div class="member-socials">
+                            <a href="https://github.com/7rocky" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                            <a href="https://7rocky.github.io/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    <!-- ... back content ... -->
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/Aali.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Aali</div>
+                        <div class="member-role">Hack the planet!</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff8000;"></i>
+                                <span class="member-tag-text orange">REV</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            
+                        </div>
+                    </div>
+
+                
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/chroni.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Babafaba</div>
+                        <div class="member-role">tophre</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://ctftime.org/user/128772"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/bubu.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Bubu</div>
+                        <div class="member-role">websec, pizza and marxism</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #74C0FC;"></i>
+                                <span class="member-tag-text blue">WEB</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/AlbertoFDR"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/alberto_fdr"><i class="fab fa-twitter"></i></a>
+                            <a href="https://albertofdr.github.io/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/clovis.jpg" class="member-img" alt="John Doe">
+                        <div class="member-name">ClovisMint</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #74C0FC;"></i>
+                                <span class="member-tag-text blue">WEB</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/BettridgeKameron/"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/ClovisMint"><i class="fab fa-twitter"></i></a>
+                            <a href="https://blog.mintydev.gay/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/csn3rd.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">CSN3RD</div>
+                        <div class="member-role">packet magician</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff8000;"></i>
+                                <span class="member-tag-text orange">REV</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/csn3rd"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/JonathanHoHAX"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.csn3rd.com/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/fredd.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Fredd</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff8000;"></i>
+                                <span class="member-tag-text orange">REV</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/haha.jpg" class="member-img" alt="John Doe">
+                        <div class="member-name">hah4</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #74C0FC;"></i>
+                                <span class="member-tag-text blue">WEB</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/anhhung04"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://anhhung04.github.io"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/hikunz.jpg" class="member-img" alt="John Doe">
+                        <div class="member-name">hiikunZ</div>
+                        <div class="member-role">ganbaru</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff8000;"></i>
+                                <span class="member-tag-text orange">REV</span>
+                            </div>
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/hiikun_Z"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/hammer.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">H-mmer</div>
+                        <div class="member-role">DevOps Engineer</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #B197FC;"></i>
+                                <span class="member-tag-text purple">FORENSICS</span>
+
+                            </div>
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #aa1010;"></i>
+                                <span class="member-tag-text infra">INFRA</span>
+                            </div>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/H-mmer"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/Hmmer89"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/ItayB.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">ItayB</div>
+                        <div class="member-role">Around the world</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #a51355;"></i>
+                                <span class="member-tag-text pwn">PWN</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/itaybel"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/ItayBel"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/jackfromeast.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Jackfromeast</div>
+                        <div class="member-role">Definitely not the west</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #a51355;"></i>
+                                <span class="member-tag-text pwn">PWN</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/kiona.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Kiona</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/kionactf"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/KLPP.jpg" class="member-img" alt="John Doe">
+                        <div class="member-name">KLPP</div>
+                        <div class="member-role">Love me some PPC</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+
+                            </div>
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #a51355;"></i>
+                                <span class="member-tag-text pwn">PWN</span>
+                            </div>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://ctftime.org/user/139971"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/linz.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Linz</div>
+                        <div class="member-role">v1 v2 v3 v4 v5 v6 v7 v ATE</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #a51355;"></i>
+                                <span class="member-tag-text pwn">PWN</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/moriarty.jpeg" class="member-img" alt="John Doe">
+                        <div class="member-name">Moriarty</div>
+                        <div class="member-role">I like Cats</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #B197FC;"></i>
+                                <span class="member-tag-text purple">FORENSICS</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/Rudrakshsaini2"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/mk.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">mk</div>
+                        <div class="member-role">rev & pwn - evm.starknet.sui</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff9494"></i>
+                                <span class="member-tag-text blockchain">BLOCKCHAIN</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/m4k2"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/m4k2_0x"><i class="fab fa-twitter"></i></a>
+                            <a href="https://m4k2.github.io/bebop/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/Onirique.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Onirique</div>
+                        <div class="member-role">NewJeans Stan</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/junvalentine"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/Onirique9203"><i class="fab fa-twitter"></i></a>
+                            <a href="https://junvalentine.github.io"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/Oshawk.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Oshawk</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #ff8000;"></i>
+                                <span class="member-tag-text orange">REV</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/Oshawk/"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://oshawk.uk/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/satoooon.jpeg" class="member-img" alt="John Doe">
+                        <div class="member-name">Satoooon</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #74C0FC;"></i>
+                                <span class="member-tag-text blue">WEB</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://thehackerscrew.team"><i class="fab fa-github"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fab fa-twitter"></i></a>
+                            <a href="https://thehackerscrew.team"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/Shadowwws.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">Shadowwws</div>
+                        <div class="member-role">:3</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #FFD43B;"></i>
+                                <span class="member-tag-text yellow">CRYPTO</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/Shadowwws"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/Shadowwws7"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.xorminds.com/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/sealldev.webp" class="member-img" alt="John Doe">
+                        <div class="member-name">sealldev</div>
+                        <div class="member-role">trying my best :+1:</div>
+                        <div class="member-tags">
+                            <div class="member-tag">
+                                <i class="fa-solid fa-screwdriver" style="color: #B197FC;"></i>
+                                <span class="member-tag-text purple">FORENSICS</span>
+                            </div>
+
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://github.com/sealldeveloper"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/sealldev"><i class="fab fa-twitter"></i></a>
+                            <a href="https://seall.dev/"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <!-- Add more members here -->
+        </div>
+    </div>
+    </div>
+    
+   
+    <script>
+        // Add this JavaScript
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Only flip if click is not on social link
+                if (!e.target.closest('.member-socials a')) {
+                    card.classList.toggle('flipped');
+                }
+            });
+        });
+
+        // Enable actual link behavior
+        document.querySelectorAll('.member-socials a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Uncomment next line if you want links to actually navigate
+                // window.location.href = link.href;
+            });
+        });
+    </script>
+    <footer id="footer">
+        <div id="social-links">
+            <a href="https://ctftime.org/team/85618" target="_blank">
+                <i class="fa-solid fa-flag" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://x.com/thehackerscrew1" target="_blank">
+                <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://github.com/ThehackerscrewB" target="_blank">
+                <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>
+            </a>
+        </div>
+        <div id="copyright">
+            © 2025 Thehackerscrew. All rights reserved.
+        </div>
+    </footer>
+    
+</body>
+
+</html>
