@@ -1,7 +1,5 @@
+# Summary
 
-# Blindspot Revenge Writeup
-
-  
 
 This challenge implements a server that performs blind signatures by interacting with a client (us). We can request as many signatures as we wish from the server, with the goal being to produce at least one more valid signature that the number of signatures we asked from the server. The server keeps count of both how many messages it has signed and how many signatures of different messages it has validated, if at any point the number of validations exceeds the number of signings, we receive the flag.
 

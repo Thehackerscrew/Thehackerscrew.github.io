@@ -341,15 +341,29 @@
             postLink.href = `writeup.html?id=${post.id}`;
             postLink.className = 'blog-card';
 
+            // Render all tags
+            let tagsHtml = '';
+            if (Array.isArray(post.tags)) {
+                tagsHtml = post.tags.map(t =>
+                    `<span class="blog-tag ${t.tag}">
+                        <i class="fa-solid fa-screwdriver" style="color: ${getTagColor(t.tag)};"></i>
+                        ${t.tagText}
+                    </span>`
+                ).join(' ');
+            } else if (post.tag) {
+                // fallback for old posts
+                tagsHtml = `<span class="blog-tag ${post.tag}">
+                    <i class="fa-solid fa-screwdriver" style="color: ${getTagColor(post.tag)};"></i>
+                    ${post.tagText}
+                </span>`;
+            }
+
             postLink.innerHTML = `
                 <div class="blog-header">
                     <h2 class="blog-title">${post.title}</h2>
                     <span class="blog-date">${post.date}</span>
                 </div>
-                <span class="blog-tag ${post.tag}">
-                    <i class="fa-solid fa-screwdriver" style="color: ${getTagColor(post.tag)};"></i>
-                    ${post.tagText}
-                </span>
+                ${tagsHtml}
                 <p class="blog-description">${post.description}</p>
             `;
 
@@ -398,7 +412,24 @@
                     tag: 'crypto',
                     tagText: 'CRYPTO',
                     description: 'This challenge implements a server that performs blind signatures by interacting with a client (us). We can request as many signatures as we wish from the server, with the goal being to produce at least one more valid signature that the number of signatures we asked from the server.'
-                }
+                },
+                {
+                    id: 'bigbabycode',
+                    title: 'SAS CTF 2025 - BigBabyCode',
+                    date: 'May 31, 2025',
+                    tag: 'crypto',
+                    tagText: 'CRYPTO',
+                    description: 'Writeup for the BigBabyCode challenge from SAS CTF 2025.'
+                },
+                {
+                    id: 'scp-522',
+                    title: 'SAS CTF 2025 - SCP-522',
+                    date: 'May 31, 2025',
+                    tag: 'crypto', tagText: 'CRYPTO' ,
+                    description: 'An SCP object has escaped containment. Its current location is unknown. Intelligence suggests a direct connection between the breach and a recent leak involving Level 5 clearance data. Fortunately, the integrity of the leaked information is protected by signatures, and some portions remain encrypted. Thats reassuring... right?'
+                },
+                
+                
             ];
             renderPosts();
         }
@@ -417,4 +448,4 @@
         initializePosts();
     </script>
 </body>
-</html> 
+</html>
